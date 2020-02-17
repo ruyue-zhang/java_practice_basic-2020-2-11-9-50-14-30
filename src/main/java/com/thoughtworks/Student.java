@@ -4,7 +4,6 @@ package com.thoughtworks;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Objects;
 
 public class Student {
     private String name;
@@ -44,8 +43,8 @@ public class Student {
         Date enrolTime = sdf.parse(date);
         long enrolTimeMs = enrolTime.getTime();
         long currentTime = new Date().getTime();
-
-        return (int)Math.floor((currentTime - enrolTimeMs) / (1000 * 60 * 60 * 24 * 365));
+        long time = currentTime - enrolTimeMs;
+        return (int)(time / (1000L * 60 * 60 * 24 * 365) );
 
     }
 }
